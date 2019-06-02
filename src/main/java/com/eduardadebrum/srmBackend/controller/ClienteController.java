@@ -1,18 +1,39 @@
 package com.eduardadebrum.srmBackend.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.eduardadebrum.srmBackend.model.Cliente;
+import com.eduardadebrum.srmBackend.service.ClienteService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.validation.Valid;
 
-/**
+/** Classe controller contendo as requisições.
+ *
  * @author Eduarda de Brum Lucena
  */
 @RestController
 public class ClienteController {
 
-    @GetMapping("/associados")
-    public String findAllEleitor() {
-        return "Hello";
+    @Autowired
+    private ClienteService clienteService;
+
+    @GetMapping("/clientes")
+    public Iterable<Cliente> findAll() {
+        return clienteService.findAll();
+    }
+
+    @GetMapping("/cliente")
+    public Cliente findById() {
+        return null;
+    }
+
+    @PostMapping("saveCliente")
+    public Cliente save(@Valid @RequestBody Cliente cliente) {
+        return clienteService.save(cliente);
+    }
+
+    @PutMapping("updateCliente")
+    public Cliente update(@Valid @RequestBody Cliente cliente) {
+        return clienteService.update(cliente);
     }
 }
