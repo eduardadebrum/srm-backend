@@ -35,7 +35,10 @@ public class Cliente {
     @Column(name = "LIMITE_CREDITO")
     private BigDecimal limiteCredito;
 
-    @NotBlank(message = "Risco é Obrigatório")
+    @NotNull(message = "Risco é Obrigatório")
     @Column(name = "RISCO")
-    private String risco;
+    @Convert(converter = RiscoEnumConverter.class)
+    private RiscoEnum risco;
+
+
 }
