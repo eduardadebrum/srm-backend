@@ -19,7 +19,7 @@ public class RiscoEnumConverter implements AttributeConverter<RiscoEnum, String>
     }
 
     @Override
-    public RiscoEnum convertToEntityAttribute(String s) {
-        return Objects.isNull(s) ? null : RiscoEnum.valueOf(s);
+    public RiscoEnum convertToEntityAttribute(String value) {
+        return Objects.isNull(value) || value.trim().equals("") ? null : RiscoEnum.valueOf(value);
     }
 }
