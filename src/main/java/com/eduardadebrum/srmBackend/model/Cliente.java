@@ -39,6 +39,4 @@ public class Cliente {
     @Column(name = "RISCO")
     @Convert(converter = RiscoEnumConverter.class)
     private RiscoEnum risco;
-
-
 }

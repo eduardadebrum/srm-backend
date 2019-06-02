@@ -12,6 +12,7 @@ import javax.validation.Valid;
  * @author Eduarda de Brum Lucena
  */
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class ClienteController {
 
     @Autowired
